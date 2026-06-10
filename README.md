@@ -19,4 +19,4 @@ curie fold MKTIIALSYIFCLVFA
 
 ## Links
 - https://curie.sh
-- https://github.com/curieapi/curie-cli
+- https://github.com/curieapi/cli
