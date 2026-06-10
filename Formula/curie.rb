@@ -8,13 +8,9 @@ class Curie < Formula
   depends_on "python@3.11"
 
   def install
-    python = Formula["python@3.11"].opt_bin/"python3.11"
-    system python, "-m", "pip", "install", "--no-deps", "--prefix=#{prefix}", "."
+    virtualenv_create(libexec, "python3.11")
+    system libexec/"bin/pip", "install", "--verbose", buildpath
     bin.install_symlink libexec/"bin/curie"
-  end
-
-  def post_install
-    system bin/"curie", "--help"
   end
 
   test do
