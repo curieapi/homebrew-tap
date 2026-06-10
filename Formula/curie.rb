@@ -1,4 +1,6 @@
 class Curie < Formula
+  include Language::Python::Virtualenv
+
   desc "CLI for the Curie scientific AI platform — run biology, chemistry, and physics models from your terminal"
   homepage "https://curie.sh"
   url "https://github.com/curieapi/cli/archive/refs/tags/v0.1.0.tar.gz"
@@ -8,9 +10,7 @@ class Curie < Formula
   depends_on "python@3.11"
 
   def install
-    virtualenv_create(libexec, "python3.11")
-    system libexec/"bin/pip", "install", "--verbose", buildpath
-    bin.install_symlink libexec/"bin/curie"
+    virtualenv_install_with_resources
   end
 
   test do
